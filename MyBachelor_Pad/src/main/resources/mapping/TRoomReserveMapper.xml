@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jsdx.zjj.ssl.dao.TRoomReserveMapper">
+  <resultMap id="BaseResultMap" type="jsdx.zjj.ssl.entity.TRoomReserve">
+    <id column="Table_Id" jdbcType="INTEGER" property="tableId" />
+    <result column="Room_Id" jdbcType="VARCHAR" property="roomId" />
+    <result column="Room_Person" jdbcType="VARCHAR" property="roomPerson" />
+    <result column="MobielPhone" jdbcType="VARCHAR" property="mobielphone" />
+    <result column="Reserve_Star" jdbcType="TIMESTAMP" property="reserveStar" />
+    <result column="Reserve_End" jdbcType="TIMESTAMP" property="reserveEnd" />
+    <result column="Reserve_status" jdbcType="INTEGER" property="reserveStatus"/>
+    <result column="Reserve_Money" jdbcType="DOUBLE" property="reserveMoney" />
+    <result column="Admin_Accout" jdbcType="VARCHAR" property="adminAccout" />
+    <result column="Create_Man" jdbcType="INTEGER" property="createMan" />
+    <result column="Create_Date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="Update_Man" jdbcType="INTEGER" property="updateMan" />
+    <result column="Update_Date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="Remark" jdbcType="VARCHAR" property="remark" />
+    <result column="attribute1" jdbcType="VARCHAR" property="attribute1" />
+    <result column="attribute2" jdbcType="VARCHAR" property="attribute2" />
+    <result column="attribute3" jdbcType="VARCHAR" property="attribute3" />
+    <result column="attribute4" jdbcType="VARCHAR" property="attribute4" />
+    <result column="attribute5" jdbcType="VARCHAR" property="attribute5" />
+    <result column="attribute6" jdbcType="VARCHAR" property="attribute6" />
+    <result column="attribute7" jdbcType="VARCHAR" property="attribute7" />
+    <result column="attribute8" jdbcType="VARCHAR" property="attribute8" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_room_reserve
+    where Table_Id = #{tableId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="jsdx.zjj.ssl.entity.TRoomreserve">
+    <selectKey keyProperty="tableId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_room_reserve (Table_Id, Room_Id, Room_Person, 
+      MobielPhone, Reserve_Star, Reserve_End, Reserve_status
+      Reserve_Money, Admin_Accout, Create_Man, 
+      Create_Date, Update_Man, Update_Date, 
+      Remark
+      )
+    values (#{tableId,jdbcType=INTEGER}, #{roomId,jdbcType=VARCHAR}, #{roomPerson,jdbcType=VARCHAR}, 
+      #{mobielphone,jdbcType=VARCHAR}, #{reserveStar,jdbcType=TIMESTAMP}, #{reserveEnd,jdbcType=TIMESTAMP},
+    #{reserveStatus,jdbcType=INTEGER},
+      #{reserveMoney,jdbcType=DOUBLE}, #{adminAccout,jdbcType=VARCHAR}, #{createMan,jdbcType=INTEGER}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateMan,jdbcType=INTEGER}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="jsdx.zjj.ssl.entity.TRoomreserve">
+    update t_room_reserve
+    set Room_Id = #{roomId,jdbcType=VARCHAR},
+      Room_Person = #{roomPerson,jdbcType=VARCHAR},
+      MobielPhone = #{mobielphone,jdbcType=VARCHAR},
+      Reserve_Star = #{reserveStar,jdbcType=TIMESTAMP},
+      Reserve_End = #{reserveEnd,jdbcType=TIMESTAMP},
+      Reserve_Status  = #{reserveStatus,jdbcType=INTEGER},
+      Reserve_Money = #{reserveMoney,jdbcType=DOUBLE},
+      Admin_Accout = #{adminAccout,jdbcType=VARCHAR},
+      Create_Man = #{createMan,jdbcType=INTEGER},
+      Create_Date = #{createDate,jdbcType=TIMESTAMP},
+      Update_Man = #{updateMan,jdbcType=INTEGER},
+      Update_Date = #{updateDate,jdbcType=TIMESTAMP},
+      Remark = #{remark,jdbcType=VARCHAR}
+    where Table_Id = #{tableId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select Table_Id, Room_Id, Room_Person, MobielPhone, Reserve_Star, Reserve_End, Reserve_Status,Reserve_Money,
+    Admin_Accout, Create_Man, Create_Date, Update_Man, Update_Date, Remark, attribute1,
+    attribute2, attribute3, attribute4, attribute5, attribute6, attribute7, attribute8
+    from t_room_reserve
+    where Table_Id = #{tableId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select Table_Id, Room_Id, Room_Person, MobielPhone, Reserve_Star, Reserve_End,Reserve_Status, Reserve_Money,
+    Admin_Accout, Create_Man, Create_Date, Update_Man, Update_Date, Remark, attribute1,
+    attribute2, attribute3, attribute4, attribute5, attribute6, attribute7, attribute8
+    from t_room_reserve
+  </select>
+</mapper>

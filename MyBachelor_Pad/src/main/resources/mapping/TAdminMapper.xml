@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jsdx.zjj.ssl.dao.TAdminMapper">
+  <resultMap id="BaseResultMap" type="jsdx.zjj.ssl.entity.TAdmin">
+    <id column="Table_Id" jdbcType="INTEGER" property="tableId" />
+    <result column="Admin_Accout" jdbcType="VARCHAR" property="adminAccout" />
+    <result column="Admin_Pwd" jdbcType="VARCHAR" property="adminPwd" />
+    <result column="Admin_Name" jdbcType="VARCHAR" property="adminName" />
+    <result column="Admin_Photo" jdbcType="VARCHAR" property="adminPhoto" />
+    <result column="ID_Card" jdbcType="VARCHAR" property="idCard" />
+    <result column="Admin_Tel" jdbcType="VARCHAR" property="adminTel" />
+    <result column="Admin_Email" jdbcType="VARCHAR" property="adminEmail" />
+    <result column="Create_Man" jdbcType="INTEGER" property="createMan" />
+    <result column="Create_Date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="Update_Man" jdbcType="INTEGER" property="updateMan" />
+    <result column="Update_Date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="Remark" jdbcType="VARCHAR" property="remark" />
+    <result column="attribute1" jdbcType="VARCHAR" property="attribute1" />
+    <result column="attribute2" jdbcType="VARCHAR" property="attribute2" />
+    <result column="attribute3" jdbcType="VARCHAR" property="attribute3" />
+    <result column="attribute4" jdbcType="VARCHAR" property="attribute4" />
+    <result column="attribute5" jdbcType="VARCHAR" property="attribute5" />
+    <result column="attribute6" jdbcType="VARCHAR" property="attribute6" />
+    <result column="attribute7" jdbcType="VARCHAR" property="attribute7" />
+    <result column="attribute8" jdbcType="VARCHAR" property="attribute8" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_admin
+    where Table_Id = #{tableId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="jsdx.zjj.ssl.entity.TAdmin">
+    <selectKey keyProperty="tableId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_admin (Table_Id, Admin_Accout, Admin_Pwd, 
+      Admin_Name, Admin_Photo, ID_Card, 
+      Admin_Tel, Admin_Email, Create_Man, 
+      Create_Date, Update_Man, Update_Date, 
+      Remark, attribute1, attribute2, 
+      attribute3, attribute4, attribute5, 
+      attribute6, attribute7, attribute8
+      )
+    values (#{tableId,jdbcType=INTEGER}, #{adminAccout,jdbcType=VARCHAR}, #{adminPwd,jdbcType=VARCHAR}, 
+      #{adminName,jdbcType=VARCHAR}, #{adminPhoto,jdbcType=VARCHAR}, #{idCard,jdbcType=VARCHAR}, 
+      #{adminTel,jdbcType=VARCHAR}, #{adminEmail,jdbcType=VARCHAR}, #{createMan,jdbcType=INTEGER}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateMan,jdbcType=INTEGER}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=VARCHAR}, #{attribute1,jdbcType=VARCHAR}, #{attribute2,jdbcType=VARCHAR}, 
+      #{attribute3,jdbcType=VARCHAR}, #{attribute4,jdbcType=VARCHAR}, #{attribute5,jdbcType=VARCHAR}, 
+      #{attribute6,jdbcType=VARCHAR}, #{attribute7,jdbcType=VARCHAR}, #{attribute8,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="jsdx.zjj.ssl.entity.TAdmin">
+    update t_admin
+    set Admin_Accout = #{adminAccout,jdbcType=VARCHAR},
+      Admin_Pwd = #{adminPwd,jdbcType=VARCHAR},
+      Admin_Name = #{adminName,jdbcType=VARCHAR},
+      Admin_Photo = #{adminPhoto,jdbcType=VARCHAR},
+      ID_Card = #{idCard,jdbcType=VARCHAR},
+      Admin_Tel = #{adminTel,jdbcType=VARCHAR},
+      Admin_Email = #{adminEmail,jdbcType=VARCHAR},
+      Create_Man = #{createMan,jdbcType=INTEGER},
+      Create_Date = #{createDate,jdbcType=TIMESTAMP},
+      Update_Man = #{updateMan,jdbcType=INTEGER},
+      Update_Date = #{updateDate,jdbcType=TIMESTAMP},
+      Remark = #{remark,jdbcType=VARCHAR},
+      attribute1 = #{attribute1,jdbcType=VARCHAR},
+      attribute2 = #{attribute2,jdbcType=VARCHAR},
+      attribute3 = #{attribute3,jdbcType=VARCHAR},
+      attribute4 = #{attribute4,jdbcType=VARCHAR},
+      attribute5 = #{attribute5,jdbcType=VARCHAR},
+      attribute6 = #{attribute6,jdbcType=VARCHAR},
+      attribute7 = #{attribute7,jdbcType=VARCHAR},
+      attribute8 = #{attribute8,jdbcType=VARCHAR}
+    where Table_Id = #{tableId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select Table_Id, Admin_Accout, Admin_Pwd, Admin_Name, Admin_Photo, ID_Card, Admin_Tel, 
+    Admin_Email, Create_Man, Create_Date, Update_Man, Update_Date, Remark, attribute1,
+    attribute2, attribute3, attribute4, attribute5, attribute6, attribute7, attribute8
+    from t_admin
+    where Table_Id = #{tableId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select Table_Id, Admin_Accout, Admin_Pwd, Admin_Name, Admin_Photo, ID_Card, Admin_Tel,
+    Admin_Email, Create_Man, Create_Date, Update_Man, Update_Date, Remark, attribute1,
+    attribute2, attribute3, attribute4, attribute5, attribute6, attribute7, attribute8
+    from t_admin
+  </select>
+</mapper>

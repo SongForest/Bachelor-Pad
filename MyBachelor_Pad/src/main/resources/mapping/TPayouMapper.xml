@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jsdx.zjj.ssl.dao.TPayouMapper">
+    <resultMap id="BaseResultMap" type="jsdx.zjj.ssl.entity.TPayou">
+        <id column="Table_Id" jdbcType="INTEGER" property="tableId"/>
+        <result column="Payou_Name" jdbcType="VARCHAR" property="payouName"/>
+        <result column="Payou_Type" jdbcType="VARCHAR" property="payouType"/>
+        <result column="Payou_Money" jdbcType="DOUBLE" property="payouMoney"/>
+        <result column="Payou_Time" jdbcType="TIMESTAMP" property="payouTime"/>
+        <result column="Payou_Person" jdbcType="VARCHAR" property="payouPerson"/>
+        <result column="Admin_Accout" jdbcType="VARCHAR" property="adminAccout"/>
+        <result column="Payou_Describ" jdbcType="VARCHAR" property="payouDescrib"/>
+        <result column="Create_Man" jdbcType="INTEGER" property="createMan"/>
+        <result column="Create_Date" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="Update_Man" jdbcType="INTEGER" property="updateMan"/>
+        <result column="Update_Date" jdbcType="TIMESTAMP" property="updateDate"/>
+        <result column="Remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="attribute1" jdbcType="VARCHAR" property="attribute1"/>
+        <result column="attribute2" jdbcType="VARCHAR" property="attribute2"/>
+        <result column="attribute3" jdbcType="VARCHAR" property="attribute3"/>
+        <result column="attribute4" jdbcType="VARCHAR" property="attribute4"/>
+        <result column="attribute5" jdbcType="VARCHAR" property="attribute5"/>
+        <result column="attribute6" jdbcType="VARCHAR" property="attribute6"/>
+        <result column="attribute7" jdbcType="VARCHAR" property="attribute7"/>
+        <result column="attribute8" jdbcType="VARCHAR" property="attribute8"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from t_payou
+        where Table_Id = #{tableId,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="jsdx.zjj.ssl.entity.TPayou">
+        <selectKey keyProperty="tableId" order="BEFORE" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into t_payou (Table_Id, Payou_Name, Payou_Type,
+        Payou_Money, Payou_Time, Payou_Person,
+        Admin_Accout, Payou_Describ, Create_Man,
+        Create_Date, Update_Man, Update_Date,
+        Remark
+        )
+        values (#{tableId,jdbcType=INTEGER}, #{payouName,jdbcType=VARCHAR}, #{payouType,jdbcType=VARCHAR},
+        #{payouMoney,jdbcType=DOUBLE}, #{payouTime,jdbcType=TIMESTAMP}, #{payouPerson,jdbcType=VARCHAR},
+        #{adminAccout,jdbcType=VARCHAR}, #{payouDescrib,jdbcType=VARCHAR}, #{createMan,jdbcType=INTEGER},
+        #{createDate,jdbcType=TIMESTAMP}, #{updateMan,jdbcType=INTEGER}, #{updateDate,jdbcType=TIMESTAMP},
+        #{remark,jdbcType=VARCHAR}
+        )
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="jsdx.zjj.ssl.entity.TPayou">
+        update t_payou
+        set Payou_Name    = #{payouName,jdbcType=VARCHAR},
+            Payou_Type    = #{payouType,jdbcType=VARCHAR},
+            Payou_Money   = #{payouMoney,jdbcType=DOUBLE},
+            Payou_Time    = #{payouTime,jdbcType=TIMESTAMP},
+            Payou_Person  = #{payouPerson,jdbcType=VARCHAR},
+            Admin_Accout  = #{adminAccout,jdbcType=VARCHAR},
+            Payou_Describ = #{payouDescrib,jdbcType=VARCHAR},
+            Create_Man    = #{createMan,jdbcType=INTEGER},
+            Create_Date   = #{createDate,jdbcType=TIMESTAMP},
+            Update_Man    = #{updateMan,jdbcType=INTEGER},
+            Update_Date   = #{updateDate,jdbcType=TIMESTAMP},
+            Remark        = #{remark,jdbcType=VARCHAR},
+
+            where Table_Id = #{tableId,jdbcType=INTEGER}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select Table_Id,
+               Payou_Name,
+               Payou_Type,
+               Payou_Money,
+               Payou_Time,
+               Payou_Person,
+               Admin_Accout,
+               Payou_Describ,
+               Create_Man,
+               Create_Date,
+               Update_Man,
+               Update_Date,
+               Remark,
+               attribute1,
+               attribute2,
+               attribute3,
+               attribute4,
+               attribute5,
+               attribute6,
+               attribute7,
+               attribute8
+        from t_payou
+        where Table_Id = #{tableId,jdbcType=INTEGER}
+    </select>
+    <select id="listAll" parameterType="java.util.Map" resultMap="BaseResultMap">
+        select Table_Id, Payou_Name, Payou_Type, Payou_Money, Payou_Time, Payou_Person, Admin_Accout,
+        Payou_Describ, Create_Man, Create_Date, Update_Man, Update_Date, Remark, attribute1,
+        attribute2, attribute3, attribute4, attribute5, attribute6, attribute7, attribute8
+        from t_payou
+
+    </select>
+
+    <select id="listPayouMoney" parameterType="java.util.Map" resultType="jsdx.zjj.ssl.until.PayouUntil">
+        select Payou_Type as payouType,sum(Payou_Money) as payOuMoney
+        from t_payou
+        <where>
+            <if test="payMon=1">
+                DATE_FORMAT(Payou_Time,'%Y-%m')=DATE_FORMAT(now(),'%Y-%m')
+            </if>
+        </where>
+        <if test="payMon=1">
+            group by Payou_Type
+        </if>
+    </select>
+</mapper>
