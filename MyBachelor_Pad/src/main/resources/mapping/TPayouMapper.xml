@@ -97,7 +97,7 @@
     </select>
 
     <select id="listPayouMoney" parameterType="java.util.Map" resultType="jsdx.zjj.ssl.until.PayouUntil">
-        select Payou_Type as payouType,sum(Payou_Money) as payOuMoney
+        select Payou_Type as payouType,sum(Payou_Money) as payouMoney
         from t_payou
         <where>
             <if test="payMon=1">

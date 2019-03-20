@@ -1,5 +1,6 @@
 package jsdx.zjj.ssl.entity;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class TRoomQuit {
@@ -7,9 +8,9 @@ public class TRoomQuit {
 
     private Integer roomhireId;
 
-    private Double quitMoney;
+    private BigDecimal quitMoney;
 
-    private Double hireMoney;
+    private BigDecimal hireMoney;
 
     private String adminAccout;
 
@@ -55,19 +56,19 @@ public class TRoomQuit {
         this.roomhireId = roomhireId;
     }
 
-    public Double getQuitMoney() {
+    public BigDecimal getQuitMoney() {
         return quitMoney;
     }
 
-    public void setQuitMoney(Double quitMoney) {
+    public void setQuitMoney(BigDecimal quitMoney) {
         this.quitMoney = quitMoney;
     }
 
-    public Double getHireMoney() {
+    public BigDecimal getHireMoney() {
         return hireMoney;
     }
 
-    public void setHireMoney(Double hireMoney) {
+    public void setHireMoney(BigDecimal hireMoney) {
         this.hireMoney = hireMoney;
     }
 

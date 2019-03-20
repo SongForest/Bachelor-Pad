@@ -1,9 +1,11 @@
 package jsdx.zjj.ssl.until;
 
+import java.math.BigDecimal;
+
 public class PayouUntil {
     private String payouType;
 
-    private double payOuMoney;
+    private BigDecimal payouMoney;
 
     public String getPayouType() {
         return payouType;
@@ -13,11 +15,11 @@ public class PayouUntil {
         this.payouType = payouType;
     }
 
-    public double getPayOuMoney() {
-        return payOuMoney;
+    public BigDecimal getPayouMoney() {
+        return payouMoney;
     }
 
-    public void setPayOuMoney(double payOuMoney) {
-        this.payOuMoney = payOuMoney;
+    public void setPayouMoney(BigDecimal payouMoney) {
+        this.payouMoney = payouMoney;
     }
 }

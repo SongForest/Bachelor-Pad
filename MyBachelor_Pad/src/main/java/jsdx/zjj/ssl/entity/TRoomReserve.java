@@ -1,5 +1,6 @@
 package jsdx.zjj.ssl.entity;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class TRoomReserve {
@@ -17,7 +18,7 @@ public class TRoomReserve {
 
     private int reserveStatus;
 
-    private Double reserveMoney;
+    private BigDecimal reserveMoney;
 
     private String adminAccout;
 
@@ -95,11 +96,11 @@ public class TRoomReserve {
         this.reserveEnd = reserveEnd;
     }
 
-    public Double getReserveMoney() {
+    public BigDecimal getReserveMoney() {
         return reserveMoney;
     }
 
-    public void setReserveMoney(Double reserveMoney) {
+    public void setReserveMoney(BigDecimal reserveMoney) {
         this.reserveMoney = reserveMoney;
     }
 

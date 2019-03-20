@@ -1,5 +1,6 @@
 package jsdx.zjj.ssl.entity;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class TPayou {
@@ -9,7 +10,7 @@ public class TPayou {
 
     private String payouType;
 
-    private Double payouMoney;
+    private BigDecimal payouMoney;
 
     private Date payouTime;
 
@@ -69,11 +70,11 @@ public class TPayou {
         this.payouType = payouType == null ? null : payouType.trim();
     }
 
-    public Double getPayouMoney() {
+    public BigDecimal getPayouMoney() {
         return payouMoney;
     }
 
-    public void setPayouMoney(Double payouMoney) {
+    public void setPayouMoney(BigDecimal payouMoney) {
         this.payouMoney = payouMoney;
     }
 

@@ -1,5 +1,6 @@
 package jsdx.zjj.ssl.entity;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class TRoomHire {
@@ -19,17 +20,17 @@ public class TRoomHire {
 
     private Integer roomerAmount;
 
-    private Double hireMoney;
+    private BigDecimal hireMoney;
 
-    private Double electricMoney;
+    private BigDecimal electricMoney;
 
-    private Double waterMoney;
+    private BigDecimal waterMoney;
 
-    private Double roomDeposit;
+    private BigDecimal roomDeposit;
 
-    private Double oughtCharge;
+    private BigDecimal oughtCharge;
 
-    private Double factCharge;
+    private BigDecimal factCharge;
 
     private String adminAccout;
 
@@ -127,51 +128,51 @@ public class TRoomHire {
         this.roomerAmount = roomerAmount;
     }
 
-    public Double getHireMoney() {
+    public BigDecimal getHireMoney() {
         return hireMoney;
     }
 
-    public void setHireMoney(Double hireMoney) {
+    public void setHireMoney(BigDecimal hireMoney) {
         this.hireMoney = hireMoney;
     }
 
-    public Double getElectricMoney() {
+    public BigDecimal getElectricMoney() {
         return electricMoney;
     }
 
-    public void setElectricMoney(Double electricMoney) {
+    public void setElectricMoney(BigDecimal electricMoney) {
         this.electricMoney = electricMoney;
     }
 
-    public Double getWaterMoney() {
+    public BigDecimal getWaterMoney() {
         return waterMoney;
     }
 
-    public void setWaterMoney(Double waterMoney) {
+    public void setWaterMoney(BigDecimal waterMoney) {
         this.waterMoney = waterMoney;
     }
 
-    public Double getRoomDeposit() {
+    public BigDecimal getRoomDeposit() {
         return roomDeposit;
     }
 
-    public void setRoomDeposit(Double roomDeposit) {
+    public void setRoomDeposit(BigDecimal roomDeposit) {
         this.roomDeposit = roomDeposit;
     }
 
-    public Double getOughtCharge() {
+    public BigDecimal getOughtCharge() {
         return oughtCharge;
     }
 
-    public void setOughtCharge(Double oughtCharge) {
+    public void setOughtCharge(BigDecimal oughtCharge) {
         this.oughtCharge = oughtCharge;
     }
 
-    public Double getFactCharge() {
+    public BigDecimal getFactCharge() {
         return factCharge;
     }
 
-    public void setFactCharge(Double factCharge) {
+    public void setFactCharge(BigDecimal factCharge) {
         this.factCharge = factCharge;
     }
 

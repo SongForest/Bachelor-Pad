@@ -1,5 +1,6 @@
 package jsdx.zjj.ssl.entity;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class TPayoutRepai {
@@ -13,11 +14,11 @@ public class TPayoutRepai {
 
     private Date reletFinaltime;
 
-    private Double employeeCharge;
+    private BigDecimal employeeCharge;
 
-    private Double materialCharge;
+    private BigDecimal materialCharge;
 
-    private Double otherCharge;
+    private BigDecimal otherCharge;
 
     private Date repairDate;
 
@@ -91,27 +92,27 @@ public class TPayoutRepai {
         this.reletFinaltime = reletFinaltime;
     }
 
-    public Double getEmployeeCharge() {
+    public BigDecimal getEmployeeCharge() {
         return employeeCharge;
     }
 
-    public void setEmployeeCharge(Double employeeCharge) {
+    public void setEmployeeCharge(BigDecimal employeeCharge) {
         this.employeeCharge = employeeCharge;
     }
 
-    public Double getMaterialCharge() {
+    public BigDecimal getMaterialCharge() {
         return materialCharge;
     }
 
-    public void setMaterialCharge(Double materialCharge) {
+    public void setMaterialCharge(BigDecimal materialCharge) {
         this.materialCharge = materialCharge;
     }
 
-    public Double getOtherCharge() {
+    public BigDecimal getOtherCharge() {
         return otherCharge;
     }
 
-    public void setOtherCharge(Double otherCharge) {
+    public void setOtherCharge(BigDecimal otherCharge) {
         this.otherCharge = otherCharge;
     }
 
