@@ -132,25 +132,22 @@
         from t_room
     </select>
 
-    <select id="coutAllRoom" resultType="java.lang.Integer" parameterType="java.util.Map">
+    <select id="coutAllRoom" resultType="int" parameterType="java.util.Map">
         select count(1)
         from t_room
         <where>
-            <if test="romsta = 1">
-                Room_Status = 3
+            <if test="romsta == 1">
+                and Room_Status = 3
             </if>
-            <if test="romsta = 2">
-                Room_Status = 2 and to_days(Create_Date) = to_days(now())
+            <if test="romsta == 2">
+                and Room_Status = 2 and to_days(Create_Date) = to_days(now())
             </if>
-            <if test="romsta = 3">
-                Room_Status = 1
+            <if test="romsta ==3">
+                and Room_Status = 1
             </if>
-            <if test="yearByMonRoom = 1">
+            <if test="yearByMonRoom == 1">
                 DATE_FORMAT(Create_Date,'%Y')=DATE_FORMAT(now(),'%Y')
             </if>
         </where>
-        <if test="yearByMonRoom = 1">
-            group by DATE_FORMAT(Create_Date,'%Y-%m')
-        </if>
     </select>
 </mapper>

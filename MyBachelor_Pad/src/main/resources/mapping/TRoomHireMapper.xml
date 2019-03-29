@@ -1,117 +1,170 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="jsdx.zjj.ssl.dao.TRoomHireMapper">
-  <resultMap id="BaseResultMap" type="jsdx.zjj.ssl.entity.TRoomHire">
-    <id column="Table_Id" jdbcType="INTEGER" property="tableId" />
-    <result column="Room_Id" jdbcType="VARCHAR" property="roomId" />
-    <result column="Major_Roomer" jdbcType="VARCHAR" property="majorRoomer" />
-    <result column="Hire_StartTime" jdbcType="TIMESTAMP" property="hireStarttime" />
-    <result column="Hire_FinalTime" jdbcType="TIMESTAMP" property="hireFinaltime" />
-    <result column="Hire_Type" jdbcType="INTEGER" property="hireType" />
-    <result column="Charge_Type" jdbcType="INTEGER" property="chargeType" />
-    <result column="Roomer_Amount" jdbcType="INTEGER" property="roomerAmount" />
-    <result column="Hire_Money" jdbcType="DOUBLE" property="hireMoney" />
-    <result column="Electric_money" jdbcType="DOUBLE" property="electricMoney" />
-    <result column="Water_Money" jdbcType="DOUBLE" property="waterMoney" />
-    <result column="Room_Deposit" jdbcType="DOUBLE" property="roomDeposit" />
-    <result column="Ought_Charge" jdbcType="DOUBLE" property="oughtCharge" />
-    <result column="Fact_Charge" jdbcType="DOUBLE" property="factCharge" />
-    <result column="Admin_Accout" jdbcType="VARCHAR" property="adminAccout" />
-    <result column="RegisterTime" jdbcType="TIMESTAMP" property="registertime" />
-    <result column="Detail_Explain" jdbcType="VARCHAR" property="detailExplain" />
-    <result column="Create_Man" jdbcType="INTEGER" property="createMan" />
-    <result column="Create_Date" jdbcType="TIMESTAMP" property="createDate" />
-    <result column="Update_Man" jdbcType="INTEGER" property="updateMan" />
-    <result column="Update_Date" jdbcType="TIMESTAMP" property="updateDate" />
-    <result column="Remark" jdbcType="VARCHAR" property="remark" />
-    <result column="attribute1" jdbcType="VARCHAR" property="attribute1" />
-    <result column="attribute2" jdbcType="VARCHAR" property="attribute2" />
-    <result column="attribute3" jdbcType="VARCHAR" property="attribute3" />
-    <result column="attribute4" jdbcType="VARCHAR" property="attribute4" />
-    <result column="attribute5" jdbcType="VARCHAR" property="attribute5" />
-    <result column="attribute6" jdbcType="VARCHAR" property="attribute6" />
-    <result column="attribute7" jdbcType="VARCHAR" property="attribute7" />
-    <result column="attribute8" jdbcType="VARCHAR" property="attribute8" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from t_room_hire
-    where Table_Id = #{tableId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="jsdx.zjj.ssl.entity.TRoomhire">
-    <selectKey keyProperty="tableId" order="BEFORE" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into t_room_hire (Table_Id, Room_Id, Major_Roomer,
-      Hire_StartTime, Hire_FinalTime, Hire_Type, 
-      Charge_Type, Roomer_Amount, Hire_Money, 
-      Electric_money, Water_Money, Room_Deposit, 
-      Ought_Charge, Fact_Charge, Admin_Accout, 
-      RegisterTime, Detail_Explain, Create_Man, 
-      Create_Date, Update_Man, Update_Date, 
-      Remark, attribute1, attribute2, 
-      attribute3, attribute4, attribute5, 
-      attribute6, attribute7, attribute8
-      )
-    values (#{tableId,jdbcType=INTEGER}, #{roomId,jdbcType=VARCHAR}, #{majorRoomer,jdbcType=VARCHAR}, 
-      #{hireStarttime,jdbcType=TIMESTAMP}, #{hireFinaltime,jdbcType=TIMESTAMP}, #{hireType,jdbcType=INTEGER}, 
-      #{chargeType,jdbcType=INTEGER}, #{roomerAmount,jdbcType=INTEGER}, #{hireMoney,jdbcType=DOUBLE}, 
-      #{electricMoney,jdbcType=DOUBLE}, #{waterMoney,jdbcType=DOUBLE}, #{roomDeposit,jdbcType=DOUBLE}, 
-      #{oughtCharge,jdbcType=DOUBLE}, #{factCharge,jdbcType=DOUBLE}, #{adminAccout,jdbcType=VARCHAR}, 
-      #{registertime,jdbcType=TIMESTAMP}, #{detailExplain,jdbcType=VARCHAR}, #{createMan,jdbcType=INTEGER}, 
-      #{createDate,jdbcType=TIMESTAMP}, #{updateMan,jdbcType=INTEGER}, #{updateDate,jdbcType=TIMESTAMP}, 
-      #{remark,jdbcType=VARCHAR}, #{attribute1,jdbcType=VARCHAR}, #{attribute2,jdbcType=VARCHAR}, 
-      #{attribute3,jdbcType=VARCHAR}, #{attribute4,jdbcType=VARCHAR}, #{attribute5,jdbcType=VARCHAR}, 
-      #{attribute6,jdbcType=VARCHAR}, #{attribute7,jdbcType=VARCHAR}, #{attribute8,jdbcType=VARCHAR}
-      )
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="jsdx.zjj.ssl.entity.TRoomhire">
-    update t_room_hire
-    set Room_Id = #{roomId,jdbcType=VARCHAR},
-      Major_Roomer = #{majorRoomer,jdbcType=VARCHAR},
-      Hire_StartTime = #{hireStarttime,jdbcType=TIMESTAMP},
-      Hire_FinalTime = #{hireFinaltime,jdbcType=TIMESTAMP},
-      Hire_Type = #{hireType,jdbcType=INTEGER},
-      Charge_Type = #{chargeType,jdbcType=INTEGER},
-      Roomer_Amount = #{roomerAmount,jdbcType=INTEGER},
-      Hire_Money = #{hireMoney,jdbcType=DOUBLE},
-      Electric_money = #{electricMoney,jdbcType=DOUBLE},
-      Water_Money = #{waterMoney,jdbcType=DOUBLE},
-      Room_Deposit = #{roomDeposit,jdbcType=DOUBLE},
-      Ought_Charge = #{oughtCharge,jdbcType=DOUBLE},
-      Fact_Charge = #{factCharge,jdbcType=DOUBLE},
-      Admin_Accout = #{adminAccout,jdbcType=VARCHAR},
-      RegisterTime = #{registertime,jdbcType=TIMESTAMP},
-      Detail_Explain = #{detailExplain,jdbcType=VARCHAR},
-      Create_Man = #{createMan,jdbcType=INTEGER},
-      Create_Date = #{createDate,jdbcType=TIMESTAMP},
-      Update_Man = #{updateMan,jdbcType=INTEGER},
-      Update_Date = #{updateDate,jdbcType=TIMESTAMP},
-      Remark = #{remark,jdbcType=VARCHAR},
-      attribute1 = #{attribute1,jdbcType=VARCHAR},
-      attribute2 = #{attribute2,jdbcType=VARCHAR},
-      attribute3 = #{attribute3,jdbcType=VARCHAR},
-      attribute4 = #{attribute4,jdbcType=VARCHAR},
-      attribute5 = #{attribute5,jdbcType=VARCHAR},
-      attribute6 = #{attribute6,jdbcType=VARCHAR},
-      attribute7 = #{attribute7,jdbcType=VARCHAR},
-      attribute8 = #{attribute8,jdbcType=VARCHAR}
-    where Table_Id = #{tableId,jdbcType=INTEGER}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select Table_Id, Room_Id, Major_Roomer, Hire_StartTime, Hire_FinalTime, Hire_Type, 
-    Charge_Type, Roomer_Amount, Hire_Money, Electric_money, Water_Money, Room_Deposit, 
-    Ought_Charge, Fact_Charge, Admin_Accout, RegisterTime, Detail_Explain, Create_Man, 
-    Create_Date, Update_Man, Update_Date, Remark, attribute1, attribute2, attribute3, 
-    attribute4, attribute5, attribute6, attribute7, attribute8
-    from t_room_hire
-    where Table_Id = #{tableId,jdbcType=INTEGER}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    select Table_Id, Room_Id, Major_Roomer, Hire_StartTime, Hire_FinalTime, Hire_Type, 
-    Charge_Type, Roomer_Amount, Hire_Money, Electric_money, Water_Money, Room_Deposit, 
-    Ought_Charge, Fact_Charge, Admin_Accout, RegisterTime, Detail_Explain, Create_Man, 
-    Create_Date, Update_Man, Update_Date, Remark, attribute1, attribute2, attribute3, 
-    attribute4, attribute5, attribute6, attribute7, attribute8
-    from t_room_hire
-  </select>
+    <resultMap id="BaseResultMap" type="jsdx.zjj.ssl.entity.TRoomHire">
+        <id column="Table_Id" jdbcType="INTEGER" property="tableId"/>
+        <result column="Room_Id" jdbcType="VARCHAR" property="roomId"/>
+        <result column="Major_Roomer" jdbcType="VARCHAR" property="majorRoomer"/>
+        <result column="Hire_StartTime" jdbcType="TIMESTAMP" property="hireStarttime"/>
+        <result column="Hire_FinalTime" jdbcType="TIMESTAMP" property="hireFinaltime"/>
+        <result column="Hire_Type" jdbcType="INTEGER" property="hireType"/>
+        <result column="Charge_Type" jdbcType="INTEGER" property="chargeType"/>
+        <result column="Roomer_Amount" jdbcType="INTEGER" property="roomerAmount"/>
+        <result column="Hire_Money" jdbcType="DOUBLE" property="hireMoney"/>
+        <result column="Electric_money" jdbcType="DOUBLE" property="electricMoney"/>
+        <result column="Water_Money" jdbcType="DOUBLE" property="waterMoney"/>
+        <result column="Room_Deposit" jdbcType="DOUBLE" property="roomDeposit"/>
+        <result column="Ought_Charge" jdbcType="DOUBLE" property="oughtCharge"/>
+        <result column="Fact_Charge" jdbcType="DOUBLE" property="factCharge"/>
+        <result column="Admin_Accout" jdbcType="VARCHAR" property="adminAccout"/>
+        <result column="RegisterTime" jdbcType="TIMESTAMP" property="registertime"/>
+        <result column="Detail_Explain" jdbcType="VARCHAR" property="detailExplain"/>
+        <result column="Create_Man" jdbcType="INTEGER" property="createMan"/>
+        <result column="Create_Date" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="Update_Man" jdbcType="INTEGER" property="updateMan"/>
+        <result column="Update_Date" jdbcType="TIMESTAMP" property="updateDate"/>
+        <result column="Damages" jdbcType="DOUBLE" property="damages"/>
+        <result column="Remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="attribute1" jdbcType="VARCHAR" property="attribute1"/>
+        <result column="attribute2" jdbcType="VARCHAR" property="attribute2"/>
+        <result column="attribute3" jdbcType="VARCHAR" property="attribute3"/>
+        <result column="attribute4" jdbcType="VARCHAR" property="attribute4"/>
+        <result column="attribute5" jdbcType="VARCHAR" property="attribute5"/>
+        <result column="attribute6" jdbcType="VARCHAR" property="attribute6"/>
+        <result column="attribute7" jdbcType="VARCHAR" property="attribute7"/>
+        <result column="attribute8" jdbcType="VARCHAR" property="attribute8"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from t_room_hire
+        where Table_Id = #{tableId,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="jsdx.zjj.ssl.entity.TRoomHire">
+        <selectKey keyProperty="tableId" order="BEFORE" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into t_room_hire (Table_Id, Room_Id, Major_Roomer,
+        Hire_StartTime, Hire_FinalTime, Hire_Type,
+        Charge_Type, Roomer_Amount, Hire_Money,
+        Electric_money, Damages,Water_Money, Room_Deposit,
+        Ought_Charge, Fact_Charge, Admin_Accout,
+        RegisterTime, Detail_Explain, Create_Man,
+        Create_Date, Update_Man, Update_Date,
+        Remark
+        )
+        values (#{tableId,jdbcType=INTEGER}, #{roomId,jdbcType=VARCHAR}, #{majorRoomer,jdbcType=VARCHAR},
+        #{hireStarttime,jdbcType=TIMESTAMP}, #{hireFinaltime,jdbcType=TIMESTAMP}, #{hireType,jdbcType=INTEGER},
+        #{chargeType,jdbcType=INTEGER}, #{roomerAmount,jdbcType=INTEGER}, #{hireMoney,jdbcType=DOUBLE},
+        #{electricMoney,jdbcType=DOUBLE},#{damages,jdbcType=DOUBLE}, #{waterMoney,jdbcType=DOUBLE},
+        #{roomDeposit,jdbcType=DOUBLE},
+        #{oughtCharge,jdbcType=DOUBLE}, #{factCharge,jdbcType=DOUBLE}, #{adminAccout,jdbcType=VARCHAR},
+        #{registertime,jdbcType=TIMESTAMP}, #{detailExplain,jdbcType=VARCHAR}, #{createMan,jdbcType=INTEGER},
+        #{createDate,jdbcType=TIMESTAMP}, #{updateMan,jdbcType=INTEGER}, #{updateDate,jdbcType=TIMESTAMP},
+        #{remark,jdbcType=VARCHAR}
+        )
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="jsdx.zjj.ssl.entity.TRoomHire">
+        update t_room_hire
+        set
+            Major_Roomer   = #{majorRoomer,jdbcType=VARCHAR},
+            Hire_StartTime = #{hireStarttime,jdbcType=TIMESTAMP},
+            Hire_FinalTime = #{hireFinaltime,jdbcType=TIMESTAMP},
+            Hire_Type      = #{hireType,jdbcType=INTEGER},
+            Charge_Type    = #{chargeType,jdbcType=INTEGER},
+            Roomer_Amount  = #{roomerAmount,jdbcType=INTEGER},
+            Hire_Money     = #{hireMoney,jdbcType=DOUBLE},
+            Electric_money = #{electricMoney,jdbcType=DOUBLE},
+            Water_Money    = #{waterMoney,jdbcType=DOUBLE},
+            Room_Deposit   = #{roomDeposit,jdbcType=DOUBLE},
+            Damages        =#{damages,jdbcType=DOUBLE},
+            Ought_Charge   = #{oughtCharge,jdbcType=DOUBLE},
+            Fact_Charge    = #{factCharge,jdbcType=DOUBLE},
+            Admin_Accout   = #{adminAccout,jdbcType=VARCHAR},
+            RegisterTime   = #{registertime,jdbcType=TIMESTAMP},
+            Detail_Explain = #{detailExplain,jdbcType=VARCHAR},
+            Create_Man     = #{createMan,jdbcType=INTEGER},
+            Create_Date    = #{createDate,jdbcType=TIMESTAMP},
+            Update_Man     = #{updateMan,jdbcType=INTEGER},
+            Update_Date    = #{updateDate,jdbcType=TIMESTAMP},
+            Remark         = #{remark,jdbcType=VARCHAR}
+        where Table_Id = #{tableId,jdbcType=INTEGER}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select Table_Id,
+               Room_Id,
+               Major_Roomer,
+               Hire_StartTime,
+               Hire_FinalTime,
+               Hire_Type,
+               Charge_Type,
+               Roomer_Amount,
+               Hire_Money,
+               Electric_money,
+               Water_Money,
+               Room_Deposit,
+               Ought_Charge,
+               Fact_Charge,
+               Admin_Accout,
+               RegisterTime,
+               Detail_Explain,
+               Create_Man,
+               Create_Date,
+               Update_Man,
+               Update_Date,
+               Remark,
+               attribute1,
+               attribute2,
+               attribute3,
+               attribute4,
+               attribute5,
+               attribute6,
+               attribute7,
+               attribute8
+        from t_room_hire
+        where Table_Id = #{tableId,jdbcType=INTEGER}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select Table_Id,
+               Room_Id,
+               Major_Roomer,
+               Hire_StartTime,
+               Hire_FinalTime,
+               Hire_Type,
+               Charge_Type,
+               Roomer_Amount,
+               Hire_Money,
+               Electric_money,
+               Water_Money,
+               Room_Deposit,
+               Ought_Charge,
+               Fact_Charge,
+               Admin_Accout,
+               RegisterTime,
+               Detail_Explain,
+               Create_Man,
+               Create_Date,
+               Update_Man,
+               Update_Date,
+               Remark,
+               attribute1,
+               attribute2,
+               attribute3,
+               attribute4,
+               attribute5,
+               attribute6,
+               attribute7,
+               attribute8,
+               Damages
+        from t_room_hire
+    </select>
+
+    <select id="countHire" parameterType="java.util.Map" resultType="int">
+        select count(1)
+        from t_room_hire
+        <where>
+            <if test="dateMon!=null">
+                DATE_FORMAT(Hire_StartTime,'%Y-%M')=DATE_FORMAT(#{dateMon},'%Y-%M')
+            </if>
+        </where>
+    </select>
 </mapper>

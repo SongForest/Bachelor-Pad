@@ -5,6 +5,7 @@ import jsdx.zjj.ssl.entity.TRoomReserve;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+@Mapper
 @Repository
 public interface TRoomReserveMapper {
     int deleteByPrimaryKey(Integer tableId);

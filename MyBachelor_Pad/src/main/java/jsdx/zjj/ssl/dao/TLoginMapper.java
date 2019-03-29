@@ -5,6 +5,7 @@ import jsdx.zjj.ssl.entity.TLogin;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+@Mapper
 @Repository
 public interface TLoginMapper {
     int deleteByPrimaryKey(Integer tableId);

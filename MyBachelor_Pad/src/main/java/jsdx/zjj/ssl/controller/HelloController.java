@@ -1,5 +1,6 @@
 package jsdx.zjj.ssl.controller;
 
+import jsdx.zjj.ssl.service.TLoginService;
 import jsdx.zjj.ssl.service.TRoomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,17 +15,21 @@ public class HelloController {
     @Autowired
     private TRoomerService roomerService;
 
+    @Autowired
+    private TLoginService loginService;
+
     @RequestMapping("/")
     public String index(Model model) {
+        model.addAttribute("indexMap",loginService.MapIndex());
         return "index";
     }
 
-    @RequestMapping("newroom")
+    @RequestMapping("/room/new")
     public String newRoom() {
         return "newroom";
     }
 
-    @RequestMapping("roomdetail")
+    @RequestMapping("/room/detail")
     public String roomDetail() {
         return "roomdetail";
     }

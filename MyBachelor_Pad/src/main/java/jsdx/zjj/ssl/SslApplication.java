@@ -5,8 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 
-@SpringBootApplication
-@ComponentScan("jsdx.zjj.ssl.dao")
+@SpringBootApplication(scanBasePackages ={"jsdx.zjj.ssl"} )
 public class SslApplication {
 
     public static void main(String[] args) {

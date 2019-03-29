@@ -5,8 +5,10 @@ import java.util.Map;
 
 import jsdx.zjj.ssl.entity.TPayoutRepai;
 import jsdx.zjj.ssl.until.PayouUntil;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+@Mapper
 @Repository
 public interface TPayoutRepaiMapper {
     int deleteByPrimaryKey(Integer tableId);

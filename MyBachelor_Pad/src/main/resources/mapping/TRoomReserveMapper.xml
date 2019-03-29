@@ -29,7 +29,7 @@
     delete from t_room_reserve
     where Table_Id = #{tableId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="jsdx.zjj.ssl.entity.TRoomreserve">
+  <insert id="insert" parameterType="jsdx.zjj.ssl.entity.TRoomReserve">
     <selectKey keyProperty="tableId" order="BEFORE" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -47,7 +47,7 @@
       #{remark,jdbcType=VARCHAR}
       )
   </insert>
-  <update id="updateByPrimaryKey" parameterType="jsdx.zjj.ssl.entity.TRoomreserve">
+  <update id="updateByPrimaryKey" parameterType="jsdx.zjj.ssl.entity.TRoomReserve">
     update t_room_reserve
     set Room_Id = #{roomId,jdbcType=VARCHAR},
       Room_Person = #{roomPerson,jdbcType=VARCHAR},

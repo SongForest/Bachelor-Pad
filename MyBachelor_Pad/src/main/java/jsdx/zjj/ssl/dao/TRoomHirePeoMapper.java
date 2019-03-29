@@ -5,6 +5,7 @@ import jsdx.zjj.ssl.entity.TRoomHirePeo;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+@Mapper
 @Repository
 public interface TRoomHirePeoMapper {
     int deleteByPrimaryKey(Integer tableId);

@@ -24,7 +24,7 @@
     delete from t_room_hire_peo
     where Table_Id = #{tableId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="jsdx.zjj.ssl.entity.TRoomhirePeo">
+  <insert id="insert" parameterType="jsdx.zjj.ssl.entity.TRoomHirePeo">
     <selectKey keyProperty="tableId" order="BEFORE" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -41,7 +41,7 @@
       #{attribute4,jdbcType=VARCHAR}, #{attribute5,jdbcType=VARCHAR}, #{attribute6,jdbcType=VARCHAR}, 
       #{attribute7,jdbcType=VARCHAR}, #{attribute8,jdbcType=VARCHAR})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="jsdx.zjj.ssl.entity.TRoomhirePeo">
+  <update id="updateByPrimaryKey" parameterType="jsdx.zjj.ssl.entity.TRoomHirePeo">
     update t_room_hire_peo
     set RoomHire_ID = #{roomhireId,jdbcType=INTEGER},
       Roomer_Id = #{roomerId,jdbcType=VARCHAR},

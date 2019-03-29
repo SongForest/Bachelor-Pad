@@ -125,7 +125,12 @@
         Create_Date, Update_Man, Update_Date, Remark, attribute1, attribute2, attribute3,
         attribute4, attribute5, attribute6, attribute7, attribute8
         from t_roomer
-        <if test="dateOrd =1">
+        <where>
+            <if test="dateOrd ==1">
+                Roomer_Status !=-1
+            </if>
+        </where>
+        <if test="dateOrd ==1">
             order by Create_Date desc
         </if>
         <if test="page!=null and pageSize != null">

@@ -8,11 +8,9 @@ public class TPayoutRepai {
 
     private String repairName;
 
+    //维修类型
     private String repairType;
 
-    private Date reletStarttime;
-
-    private Date reletFinaltime;
 
     private BigDecimal employeeCharge;
 
@@ -20,6 +18,7 @@ public class TPayoutRepai {
 
     private BigDecimal otherCharge;
 
+    //维修日期
     private Date repairDate;
 
     private String repairContent;
@@ -74,22 +73,6 @@ public class TPayoutRepai {
 
     public void setRepairType(String repairType) {
         this.repairType = repairType == null ? null : repairType.trim();
-    }
-
-    public Date getReletStarttime() {
-        return reletStarttime;
-    }
-
-    public void setReletStarttime(Date reletStarttime) {
-        this.reletStarttime = reletStarttime;
-    }
-
-    public Date getReletFinaltime() {
-        return reletFinaltime;
-    }
-
-    public void setReletFinaltime(Date reletFinaltime) {
-        this.reletFinaltime = reletFinaltime;
     }
 
     public BigDecimal getEmployeeCharge() {

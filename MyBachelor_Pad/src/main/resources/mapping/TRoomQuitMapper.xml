@@ -25,7 +25,7 @@
     delete from t_room_quit
     where Table_Id = #{tableId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="jsdx.zjj.ssl.entity.TRoomquit">
+  <insert id="insert" parameterType="jsdx.zjj.ssl.entity.TRoomQuit">
     <selectKey keyProperty="tableId" order="BEFORE" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -44,7 +44,7 @@
       #{attribute6,jdbcType=VARCHAR}, #{attribute7,jdbcType=VARCHAR}, #{attribute8,jdbcType=VARCHAR}
       )
   </insert>
-  <update id="updateByPrimaryKey" parameterType="jsdx.zjj.ssl.entity.TRoomquit">
+  <update id="updateByPrimaryKey" parameterType="jsdx.zjj.ssl.entity.TRoomQuit">
     update t_room_quit
     set RoomHire_ID = #{roomhireId,jdbcType=INTEGER},
       Quit_Money = #{quitMoney,jdbcType=DOUBLE},

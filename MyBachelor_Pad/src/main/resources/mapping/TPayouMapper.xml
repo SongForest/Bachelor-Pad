@@ -100,11 +100,11 @@
         select Payou_Type as payouType,sum(Payou_Money) as payouMoney
         from t_payou
         <where>
-            <if test="payMon=1">
-                DATE_FORMAT(Payou_Time,'%Y-%m')=DATE_FORMAT(now(),'%Y-%m')
+            <if test="payMon!=null">
+                DATE_FORMAT(Payou_Time,'%Y-%m')=DATE_FORMAT(#{payMon},'%Y-%m')
             </if>
         </where>
-        <if test="payMon=1">
+        <if test="payMon!=null">
             group by Payou_Type
         </if>
     </select>

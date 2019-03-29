@@ -5,8 +5,6 @@
     <id column="Table_Id" jdbcType="INTEGER" property="tableId" />
     <result column="Repair_Name" jdbcType="VARCHAR" property="repairName" />
     <result column="Repair_Type" jdbcType="VARCHAR" property="repairType" />
-    <result column="Relet_StartTime" jdbcType="TIMESTAMP" property="reletStarttime" />
-    <result column="Relet_FinalTime" jdbcType="TIMESTAMP" property="reletFinaltime" />
     <result column="Employee_Charge" jdbcType="DOUBLE" property="employeeCharge" />
     <result column="Material_Charge" jdbcType="DOUBLE" property="materialCharge" />
     <result column="Other_Charge" jdbcType="DOUBLE" property="otherCharge" />
@@ -36,7 +34,7 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into t_payout_repai (Table_Id, Repair_Name, Repair_Type, 
-      Relet_StartTime, Relet_FinalTime, Employee_Charge, 
+       Employee_Charge,
       Material_Charge, Other_Charge, Repair_Date, 
       Repair_Content, Admin_Accout, Create_Man, 
       Create_Date, Update_Man, Update_Date, 
@@ -45,7 +43,7 @@
       attribute6, attribute7, attribute8
       )
     values (#{tableId,jdbcType=INTEGER}, #{repairName,jdbcType=VARCHAR}, #{repairType,jdbcType=VARCHAR}, 
-      #{reletStarttime,jdbcType=TIMESTAMP}, #{reletFinaltime,jdbcType=TIMESTAMP}, #{employeeCharge,jdbcType=DOUBLE}, 
+     #{employeeCharge,jdbcType=DOUBLE},
       #{materialCharge,jdbcType=DOUBLE}, #{otherCharge,jdbcType=DOUBLE}, #{repairDate,jdbcType=TIMESTAMP}, 
       #{repairContent,jdbcType=VARCHAR}, #{adminAccout,jdbcType=VARCHAR}, #{createMan,jdbcType=INTEGER}, 
       #{createDate,jdbcType=TIMESTAMP}, #{updateMan,jdbcType=INTEGER}, #{updateDate,jdbcType=TIMESTAMP}, 
@@ -58,8 +56,6 @@
     update t_payout_repai
     set Repair_Name = #{repairName,jdbcType=VARCHAR},
       Repair_Type = #{repairType,jdbcType=VARCHAR},
-      Relet_StartTime = #{reletStarttime,jdbcType=TIMESTAMP},
-      Relet_FinalTime = #{reletFinaltime,jdbcType=TIMESTAMP},
       Employee_Charge = #{employeeCharge,jdbcType=DOUBLE},
       Material_Charge = #{materialCharge,jdbcType=DOUBLE},
       Other_Charge = #{otherCharge,jdbcType=DOUBLE},
@@ -82,7 +78,7 @@
     where Table_Id = #{tableId,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select Table_Id, Repair_Name, Repair_Type, Relet_StartTime, Relet_FinalTime, Employee_Charge, 
+    select Table_Id, Repair_Name, Repair_Type,Employee_Charge,
     Material_Charge, Other_Charge, Repair_Date, Repair_Content, Admin_Accout, Create_Man, 
     Create_Date, Update_Man, Update_Date, Remark, attribute1, attribute2, attribute3,
     attribute4, attribute5, attribute6, attribute7, attribute8
@@ -90,7 +86,7 @@
     where Table_Id = #{tableId,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select Table_Id, Repair_Name, Repair_Type, Relet_StartTime, Relet_FinalTime, Employee_Charge, 
+    select Table_Id, Repair_Name, Repair_Type, Employee_Charge,
     Material_Charge, Other_Charge, Repair_Date, Repair_Content, Admin_Accout, Create_Man, 
     Create_Date, Update_Man, Update_Date, Remark, attribute1, attribute2, attribute3,
     attribute4, attribute5, attribute6, attribute7, attribute8
@@ -101,11 +97,11 @@
     select Repair_Type as payouType,sum(Employee_Charge+Material_Charge+Other_Charge) as payOuMoney
     from t_payout_repai
     <where>
-      <if test="payMon=1">
+      <if test="payMon==1">
         DATE_FORMAT(Repair_Date,'%Y-%m')=DATE_FORMAT(now(),'%Y-%m')
       </if>
     </where>
-    <if test="payMon=1">
+    <if test="payMon==1">
       group by Repair_Type
     </if>
   </select>

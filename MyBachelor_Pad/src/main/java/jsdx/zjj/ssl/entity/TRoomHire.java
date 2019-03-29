@@ -32,6 +32,8 @@ public class TRoomHire {
 
     private BigDecimal factCharge;
 
+    private BigDecimal damages;
+
     private String adminAccout;
 
     private Date registertime;
@@ -166,6 +168,14 @@ public class TRoomHire {
 
     public void setOughtCharge(BigDecimal oughtCharge) {
         this.oughtCharge = oughtCharge;
+    }
+
+    public BigDecimal getDamages() {
+        return damages;
+    }
+
+    public void setDamages(BigDecimal damages) {
+        this.damages = damages;
     }
 
     public BigDecimal getFactCharge() {
