@@ -35,7 +35,7 @@ public class TPayoutRepai {
 
     private String remark;
 
-    private String attribute1;
+    private String hireId;
 
     private String attribute2;
 
@@ -163,12 +163,12 @@ public class TPayoutRepai {
         this.remark = remark == null ? null : remark.trim();
     }
 
-    public String getAttribute1() {
-        return attribute1;
+    public String getHireId() {
+        return hireId;
     }
 
-    public void setAttribute1(String attribute1) {
-        this.attribute1 = attribute1 == null ? null : attribute1.trim();
+    public void setHireId(String hireId) {
+        this.hireId = hireId == null ? null : hireId.trim();
     }
 
     public String getAttribute2() {

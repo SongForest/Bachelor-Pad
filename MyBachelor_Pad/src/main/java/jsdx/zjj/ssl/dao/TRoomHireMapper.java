@@ -16,7 +16,7 @@ public interface TRoomHireMapper {
 
     TRoomHire selectByPrimaryKey(Integer tableId);
 
-    List<TRoomHire> selectAll();
+    List<TRoomHire> selectAll(Map<String,Object>map);
 
     int updateByPrimaryKey(TRoomHire record);
 

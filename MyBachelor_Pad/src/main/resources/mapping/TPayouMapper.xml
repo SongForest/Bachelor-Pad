@@ -101,11 +101,22 @@
         from t_payou
         <where>
             <if test="payMon!=null">
-                DATE_FORMAT(Payou_Time,'%Y-%m')=DATE_FORMAT(#{payMon},'%Y-%m')
+                DATE_FORMAT(Payou_Time,'%Y-%m')=DATE_FORMAT(#{payMon, jdbcType=TIMESTAMP},'%Y-%m')
             </if>
         </where>
         <if test="payMon!=null">
             group by Payou_Type
         </if>
+    </select>
+
+    <select id="countMoneyBySome" parameterType="java.util.Map" resultType="java.math.BigDecimal">
+        select sum(Payou_Money) as payouMoney
+        from t_payou
+        <where>
+            <if test="payMon!=null">
+                DATE_FORMAT(Payou_Time,'%Y-%m')=DATE_FORMAT(#{payMon, jdbcType=TIMESTAMP},'%Y-%m')
+            </if>
+        </where>
+
     </select>
 </mapper>

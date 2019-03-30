@@ -18,11 +18,6 @@ public interface TLoginService {
      */
     Map<Object, Object> MapHead();
 
-    /**
-     * 获取首页中需要用javasvript中的list集合信息
-     * @return
-     */
-    Map<Object,Object>getHireAndPy();
 
     int deleteByPrimaryKey(Integer tableId);
 

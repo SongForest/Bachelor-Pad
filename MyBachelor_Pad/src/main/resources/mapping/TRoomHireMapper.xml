@@ -123,7 +123,7 @@
         from t_room_hire
         where Table_Id = #{tableId,jdbcType=INTEGER}
     </select>
-    <select id="selectAll" resultMap="BaseResultMap">
+    <select id="selectAll" resultMap="BaseResultMap" parameterType="java.util.Map">
         select Table_Id,
                Room_Id,
                Major_Roomer,

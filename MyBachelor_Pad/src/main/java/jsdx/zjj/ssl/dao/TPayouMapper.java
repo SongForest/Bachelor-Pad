@@ -1,5 +1,6 @@
 package jsdx.zjj.ssl.dao;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -22,4 +23,11 @@ public interface TPayouMapper {
     int updateByPrimaryKey(TPayou record);
 
     List<PayouUntil> listPayouMoney(Map<Object,Object> map);
+
+    /**
+     * 根據某些条件统计金额
+     * @param map
+     * @return
+     */
+    BigDecimal countMoneyBySome(Map<Object,Object> map);
 }

@@ -22,4 +22,9 @@ public class PayouUntil {
     public void setPayouMoney(BigDecimal payouMoney) {
         this.payouMoney = payouMoney;
     }
+
+    @Override
+    public String toString() {
+        return "\""+payouType+"\","+payouMoney;
+    }
 }

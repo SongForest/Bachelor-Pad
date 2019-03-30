@@ -3,6 +3,7 @@ package jsdx.zjj.ssl.service.impl;
 import jsdx.zjj.ssl.dao.*;
 import jsdx.zjj.ssl.entity.TLogin;
 import jsdx.zjj.ssl.service.TLoginService;
+import jsdx.zjj.ssl.until.DateUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,22 +43,6 @@ public class TLoginServiceImpl implements TLoginService {
         return null;
     }
 
-    /**
-     * 获取首页中需要用javasvript中的list集合信息
-     *
-     * @return
-     */
-    @Override
-    public Map<Object, Object> getHireAndPy() {
-        //返回页面的数据保存在这个map中
-        Map<Object, Object> resultMap = new HashMap<>();
-        //传入查询方法中的参数
-        Map<Object, Object> parMap = new HashMap<>();
-        //按月统计今年入住人数
-        parMap.put("yearByMonRoom", 1);
-        resultMap.put("yearRoom", countYearBymon());
-        return resultMap;
-    }
 
     /**
      * 获取首页部分信息
@@ -72,7 +57,7 @@ public class TLoginServiceImpl implements TLoginService {
         Map<Object, Object> parMap = new HashMap<>();
         //获取全部房子
         indexMap.put("allRoom", roomMapper.coutAllRoom(parMap));
-        //LOG.info("\n\n\n\n{}555555", indexMap.get("allRoom"));
+
         //获取全部预租房屋数量
         parMap.put("romsta", 1);
         indexMap.put("preLeasingRoom", roomMapper.coutAllRoom(parMap));
@@ -92,13 +77,21 @@ public class TLoginServiceImpl implements TLoginService {
         parMap.put("page", 0);
         parMap.put("pageSize", 5);
         indexMap.put("listPeo", roomerMapper.listAll(parMap));
-        //本月支出金钱情况
-        parMap.put("payMon", 1);
+        //本月按类型统计支出金钱情况
+        parMap.put("payMon", DateUtil.getSDate("yyyy-MM-dd"));
         parMap.remove("dateOrd");
         parMap.remove("pageSize");
         parMap.remove("page");
         indexMap.put("payout", payouMapper.listPayouMoney(parMap));
         indexMap.put("repairPayout", payoutRepaiMapper.sumMoneyByMon(parMap));
+
+        //获取当月支出
+        indexMap.put("coutPay", payouMapper.countMoneyBySome(parMap));
+        indexMap.put("countRepair", payoutRepaiMapper.countMoneyBySome(parMap));
+        //获取全部注册用户
+        indexMap.put("coutRoomer", roomerMapper.countRoomer(parMap));
+
+
         //查询全部入住用户
         indexMap.put("allRoomer", roomerMapper.countRoomer(parMap));
         return indexMap;
